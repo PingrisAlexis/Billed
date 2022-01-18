@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import { screen } from "@testing-library/dom"
 import Logout from "../containers/Logout.js"
 import '@testing-library/jest-dom/extend-expect'
@@ -22,7 +18,6 @@ const bills = [{
   "date": "2004-04-04",
   "amount": 400,
   "commentAdmin": "ok",
-  "email": "a@a",
   "pct": 20,
   "email": "john.snow@billed.com"
 }]

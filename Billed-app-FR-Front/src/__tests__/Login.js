@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import LoginUI from "../views/LoginUI";
 import Login from "../containers/Login.js";
 import { ROUTES } from "../constants/routes";
@@ -110,7 +106,6 @@ describe("Given that I am a user on login page", () => {
         })
       );
     });
-
     test("It should renders Bills page", () => {
       expect(screen.getAllByText("Mes notes de frais")).toBeTruthy();
     });

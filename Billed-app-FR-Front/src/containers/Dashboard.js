@@ -15,6 +15,7 @@ export const filteredBills = (data, status) => {
         selectCondition = (bill.status === status)
       } else {
         // in prod environment
+        
         const userEmail = JSON.parse(localStorage.getItem("user")).email
         selectCondition =
           (bill.status === status) &&
@@ -145,6 +146,7 @@ export default class {
     }
 
     bills.forEach(bill => {
+      $(`#open-bill${bill.id}`).off()
       $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
     })
 

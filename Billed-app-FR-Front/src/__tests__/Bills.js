@@ -1,17 +1,36 @@
-/**
- * @jest-environment jsdom
- */
-
 import { screen } from "@testing-library/dom"
 import BillsUI from "../views/BillsUI.js"
 import { bills } from "../fixtures/bills.js"
 
 describe("Given I am connected as an employee", () => {
+  describe("When I am on Dashboard page but it is loading", () => {
+    //Add test
+    test("Then, Loading page should be rendered", () => {
+      const html = BillsUI({ loading: true })
+      document.body.innerHTML = html
+      expect(screen.getAllByText('Loading...')).toBeTruthy()
+    })
+  })
+  //Add test
+  describe('When I am on Dashboard page but back-end send an error message', () => {
+    test('Then, Error page should be rendered', () => {
+      const html = BillsUI({ error: 'some error message' })
+      document.body.innerHTML = html
+      expect(screen.getAllByText('Erreur')).toBeTruthy()
+    })
+  })
   describe("When I am on Bills Page", () => {
     test("Then bill icon in vertical layout should be highlighted", () => {
+      const user = JSON.stringify({
+        type: 'Employee'
+      })
+      window.localStorage.setItem('user', user)
       const html = BillsUI({ data: []})
       document.body.innerHTML = html
       //to-do write expect expression
+      var icon = screen.getByTestId("icon-window");
+
+      expect(icon.className).toBe("active-icon");
     })
     test("Then bills should be ordered from earliest to latest", () => {
       const html = BillsUI({ data: bills })
