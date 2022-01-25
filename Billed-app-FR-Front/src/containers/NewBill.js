@@ -24,15 +24,15 @@ export default class NewBill {
         const fileIsAnImage = file.name.match(/.(jpg|jpeg|png)$/i);
 
         if (!fileIsAnImage) {
-            return this.displayFileFormatError();
+            this.fileFormatError()
         }
 
         const formData = new FormData()
         const email = JSON.parse(localStorage.getItem("user")).email
         formData.append('file', file)
         formData.append('email', email)
-
-        this.store
+        if (this.store) {
+             this.store
             .bills()
             .create({
                 data: formData,
@@ -41,15 +41,15 @@ export default class NewBill {
                 }
             })
             .then(({fileUrl, key}) => {
-                console.log(fileUrl)
+                // console.log(fileUrl)
                 this.billId = key
                 this.fileUrl = fileUrl
                 this.fileName = fileName
             }).catch(error => console.log(error))
+        }
     }
 
-    displayFileFormatError() {
-        alert("Please upload an .jpg .jpeg or .png file")
+    fileFormatError() {
         this.document.querySelector(`input[data-testid="file"]`).value = ""
     }
 
