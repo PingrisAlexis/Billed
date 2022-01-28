@@ -71,38 +71,39 @@ describe("Given I am connected as an employee", () => {
       expect(screen.queryByText('Envoyer une note de frais')).toBeTruthy()
     });
   })
-})
 
-describe("When I click on the icon eye 's button", () => {
-  test("It should render the modal", () => {
-    const onNavigate = (pathname) => {
-      document.body.innerHTML = ROUTES({ pathname })
-    }
-    const html = BillsUI({ data: bills })
-    document.body.innerHTML = html
-    // const store = null
-    const bills1 = new Bills({
-      document,
-      onNavigate,
-      // store,
-      localStorage: window.localStorage
-    });
-    const handleClickIconEye = jest.fn(bills1.handleClickIconEye);
+  describe("When I click on the icon eye 's button", () => {
+    test("It should render the modal", () => {
+      const onNavigate = (pathname) => {
+        document.body.innerHTML = ROUTES({ pathname })
+      }
+      const html = BillsUI({ data: bills })
+      document.body.innerHTML = html
+      // const store = null
+      const bills1 = new Bills({
+        document,
+        onNavigate,
+        // store,
+        localStorage: window.localStorage
+      });
+      const handleClickIconEye = jest.fn(bills1.handleClickIconEye);
 
-    const modale = document.getElementById("modaleFile")
-    $.fn.modal = jest.fn(() => modale.classList.add('show'))
-    
-    const iconEyes = screen.getAllByTestId('icon-eye');
-    const iconEye = iconEyes[1]
+      const modale = document.getElementById("modaleFile")
+      $.fn.modal = jest.fn(() => modale.classList.add('show'))
 
-    iconEye.addEventListener('click', handleClickIconEye(iconEye));
+      const iconEyes = screen.getAllByTestId('icon-eye');
+      const iconEye = iconEyes[1]
 
-    userEvent.click(iconEye);
-    
-    expect(handleClickIconEye).toHaveBeenCalled();
-    expect(modale.classList).toContain('show')
+      iconEye.addEventListener('click', handleClickIconEye(iconEye));
+
+      userEvent.click(iconEye);
+
+      expect(handleClickIconEye).toHaveBeenCalled();
+      expect(modale.classList).toContain('show')
+    })
   })
 })
+
 
 
 // test d'intégration GET
