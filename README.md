@@ -34,6 +34,4 @@
 
 ### Set up:.
 
-- Follow the README.md from the back-end part "Billed-app-FR-Back". 
-
-- Then, follow the README.md the front-end part "Billed-app-FR-front". 
+- Follow the README.md from "Billed-app-FR-Front". 
