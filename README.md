@@ -32,6 +32,31 @@
 
 - Write a manual End-to-End test plan.
 
-### Set up:.
+### Set up:
 
-- Follow the README.md from "Billed-app-FR-Front". 
+- Clone the project: 
+  - `git clone https://github.com/PingrisAlexis/PingrisAlexis_09_09012022.git`
+
+
+- Then, install and launch the back-end part:
+   - `cd Billed-app-FR-Back`
+   - `npm install`
+   - `npm run run:dev`
+- The API is locally available on port 5678, go to http://localhost:5678
+
+
+- Now, open new terminal, and install and launch the front-end part:
+    - `cd Billed-app-FR-Front`
+    - `npm install`
+    - `npm install -g live-server`
+    - `live-server`
+    
+### Logins:
+
+- Admin:
+     - e-mail : `admin@test.tld`
+     - password : `admin`
+
+- Employee: 
+     - e-mail : `employee@test.tld`
+     - password : `employee`
