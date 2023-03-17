@@ -1,6 +1,6 @@
-# PingrisAlexis_09_09012022
+# Project 2/9 Front End Developer Path
 
-## Project 9 Front-End OpenClassrooms - Debug and test an HR SaaS.
+## Debug and test an HR SaaS.
 
 ### Specifications:
 
